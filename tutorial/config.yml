@@ -8,6 +8,5 @@ pipeline:
     active: false
 
 policies:
-- name: FlowPolicy
+  - name: FlowPolicy
 #  - name: EnterpriseSearchPolicy
-assistant_id: 20250507-181437-plain-university
