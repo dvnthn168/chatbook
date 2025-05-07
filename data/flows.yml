@@ -1,0 +1,27 @@
+# flows:
+#   book_purchase:
+#     description: Hỗ trợ người dùng chọn và mua sách từ cửa hàng.
+#     steps:
+#       # Bước 1: Hỏi người dùng về loại sách họ muốn mua
+#       - collect: book_selection
+#         description: Người dùng chọn sách muốn mua
+
+#       # Bước 2: Hỏi về thông tin của người mua và địa chỉ giao hàng
+#       - collect: user_contact_info
+#         description: Thu thập thông tin liên hệ của người dùng (email, số điện thoại, v.v.)
+#       - collect: delivery_address
+#         description: Thu thập địa chỉ giao hàng
+
+#       # Bước 3: Hỏi về phương thức thanh toán
+#       - collect: payment_method
+#         description: Hỏi người dùng chọn phương thức thanh toán (thẻ tín dụng, chuyển khoản ngân hàng, v.v.)
+
+#       # Bước 4: Tóm tắt đơn hàng và yêu cầu xác nhận
+#       - action: utter_summarize_order
+#       - collect: confirmation
+#         description: Yêu cầu người dùng xác nhận lại thông tin đơn hàng
+
+#       # Bước 5: Xử lý thanh toán và hoàn tất giao dịch
+#       # - action: action_process_payment
+#       - action: utter_order_complete
+#       - action: utter_thank_you

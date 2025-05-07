@@ -1,0 +1,151 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet
+  examples: |
+    - xin chào
+    - chào bạn
+    - hello
+    - hi
+    - chào
+    - hey
+    - good morning
+    - good evening
+    - chào anh/chị
+    - chào các bạn
+    - hi bạn
+    - chào mọi người
+    - xin chào bạn
+
+- intent: goodbye
+  examples: |
+    - tạm biệt
+    - bye
+    - hẹn gặp lại
+    - chào tạm biệt
+    - tạm biệt bạn
+
+- intent: affirm
+  examples: |
+    - vâng
+    - đúng rồi
+    - đồng ý
+    - chính xác
+    - đúng
+    - ừ
+
+- intent: deny
+  examples: |
+    - không
+    - không phải
+    - sai
+    - không đồng ý
+    - không phải vậy
+
+- intent: mood_great
+  examples: |
+    - tôi rất vui
+    - tôi ổn
+    - tôi khỏe
+    - tôi cảm thấy tuyệt vời
+    - tôi vui lắm
+
+- intent: mood_unhappy
+  examples: |
+    - tôi không vui
+    - tôi không ổn
+    - tôi cảm thấy tệ
+    - tôi buồn
+    - tôi không vui lắm
+
+- intent: ask_about_product
+  examples: |
+    - Bạn có sách gì hay không?
+    - Tôi muốn tìm sách mới.
+    - Có sách nào bán chạy không?
+    - Bạn có thể giới thiệu sách cho tôi không?
+    - Sách của tác giả X có không?
+    - Tôi đang tìm sách về lập trình.
+    - Bạn có sách tiếng Anh không?
+    - Có sách nào cho trẻ em không?
+    - Sách lịch sử có không?
+
+- intent: ask_about_price
+  examples: |
+    - Cuốn sách này giá bao nhiêu?
+    - Giá của sách này là bao nhiêu?
+    - Mức giá sách thế nào?
+    - Sách này có giá khuyến mãi không?
+    - Giá sách này có giảm không?
+    - Cuốn sách này có giá rẻ không?
+
+- intent: ask_about_discount
+  examples: |
+    - Bạn có chương trình giảm giá nào không?
+    - Hiện tại có giảm giá không?
+    - Tôi có thể được giảm giá không?
+    - Có khuyến mãi cho sách này không?
+    - Chương trình giảm giá của bạn có gì đặc biệt?
+
+- intent: ask_about_payment
+  examples: |
+    - Bạn có hỗ trợ thanh toán qua thẻ không?
+    - Tôi có thể thanh toán khi nhận hàng không?
+    - Có thể thanh toán qua chuyển khoản không?
+    - Các phương thức thanh toán có gì?
+    - Tôi muốn thanh toán qua thẻ tín dụng.
+
+- intent: ask_about_availability
+  examples: |
+    - Cuốn sách này còn không?
+    - Sách này có sẵn không?
+    - Bạn có cuốn sách này trong kho không?
+    - Tôi có thể mua sách này ngay không?
+    - Cuốn sách này có thể giao ngay không?
+
+- intent: ask_about_order_tracking
+  examples: |
+    - Làm sao để theo dõi đơn hàng của tôi?
+    - Tôi có thể kiểm tra đơn hàng ở đâu?
+    - Đơn hàng của tôi đang ở đâu?
+    - Làm thế nào để biết tình trạng đơn hàng?
+    - Tôi muốn kiểm tra trạng thái đơn hàng của mình.
+
+- intent: ask_about_return_policy
+  examples: |
+    - Chính sách trả hàng như thế nào?
+    - Nếu sách bị lỗi, tôi có thể trả lại không?
+    - Tôi có thể trả sách trong bao lâu?
+    - Sách mua xong có thể đổi trả không?
+    - Chính sách hoàn trả của bạn là gì?
+
+- intent: ask_about_shipping
+  examples: |
+    - Bạn có thể giao sách đến đâu?
+    - Phí vận chuyển là bao nhiêu?
+    - Thời gian giao hàng mất bao lâu?
+    - Tôi có thể chọn phương thức giao hàng nào?
+    - Bạn có hỗ trợ giao hàng quốc tế không?
+
+- intent: ask_about_opening_hours
+  examples: |
+    - Bạn mở cửa từ mấy giờ?
+    - Cửa hàng của bạn làm việc vào giờ nào?
+    - Giờ mở cửa của bạn là gì?
+    - Tôi có thể đến cửa hàng vào giờ nào?
+
+- intent: ask_about_location
+  examples: |
+    - Bạn ở đâu?
+    - Cửa hàng của bạn ở đâu?
+    - Địa chỉ của bạn là gì?
+    - Bạn có chi nhánh ở đâu?
+
+- intent: ask_about_contact
+  examples: |
+    - Làm sao để liên lạc với bạn?
+    - Bạn có số điện thoại không?
+    - Tôi có thể gửi email cho bạn không?
+    - Cách liên hệ với bạn như thế nào?
+    - Bạn có hỗ trợ trực tuyến không?

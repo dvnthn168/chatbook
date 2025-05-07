@@ -1,0 +1,86 @@
+version: "3.1"
+
+stories:
+
+- story: ask about product
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_product_inquiry
+  - intent: ask_about_product
+  - action: utter_ask_about_product
+
+- story: ask about price
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_product_inquiry
+  - intent: ask_about_price
+  - action: utter_ask_about_price
+
+- story: ask about discount
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_product_inquiry
+  - intent: ask_about_discount
+  - action: utter_ask_about_discount
+
+- story: ask about payment
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_product_inquiry
+  - intent: ask_about_payment
+  - action: utter_ask_about_payment
+
+- story: ask about availability
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_product_inquiry
+  - intent: ask_about_availability
+  - action: utter_ask_about_availability
+
+- story: ask about order tracking
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_product_inquiry
+  - intent: ask_about_order_tracking
+  - action: utter_ask_about_order_tracking
+
+- story: ask about return policy
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_product_inquiry
+  - intent: ask_about_return_policy
+  - action: utter_ask_about_return_policy
+
+- story: happy path with product inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_product_inquiry
+  - intent: ask_about_product
+  - action: utter_ask_about_product
+  - intent: ask_about_price
+  - action: utter_ask_about_price
+  - intent: ask_about_payment
+  - action: utter_ask_about_payment
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path with unavailable product
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_product_inquiry
+  - intent: ask_about_product
+  - action: utter_ask_about_product
+  - intent: ask_about_availability
+  - action: utter_ask_about_availability
+  - intent: deny
+  - action: utter_ask_product_unavailable
+  - action: utter_goodbye

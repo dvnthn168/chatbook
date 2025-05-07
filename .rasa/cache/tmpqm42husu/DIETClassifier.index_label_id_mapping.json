@@ -1,0 +1,10 @@
+{
+  "0": "ask_about_availability",
+  "1": "ask_about_discount",
+  "2": "ask_about_order_tracking",
+  "3": "ask_about_payment",
+  "4": "ask_about_price",
+  "5": "ask_about_product",
+  "6": "ask_about_return_policy",
+  "7": "greet"
+}

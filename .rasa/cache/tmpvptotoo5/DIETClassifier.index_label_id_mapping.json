@@ -1,0 +1,14 @@
+{
+  "0": "affirm",
+  "1": "ask_about_availability",
+  "2": "ask_about_discount",
+  "3": "ask_about_order_tracking",
+  "4": "ask_about_payment",
+  "5": "ask_about_price",
+  "6": "ask_about_product",
+  "7": "ask_about_return_policy",
+  "8": "deny",
+  "9": "greet",
+  "10": "mood_great",
+  "11": "mood_unhappy"
+}

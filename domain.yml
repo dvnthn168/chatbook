@@ -1,0 +1,125 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - ask_about_product
+  - ask_about_price
+  - ask_about_discount
+  - ask_about_payment
+  - ask_about_availability
+  - ask_about_order_tracking
+  - ask_about_return_policy
+  - ask_about_shipping
+  - ask_about_opening_hours
+  - ask_about_location
+  - ask_about_contact
+
+responses:
+  utter_greet:
+    - text: "Chào bạn! Bạn có khỏe không?"
+    - text: "Hi! Bạn cần giúp gì hôm nay?"
+    - text: "Xin chào! Bạn muốn tìm hiểu gì?"
+    - text: "Chào bạn, hôm nay tôi có thể giúp gì cho bạn?"
+  
+  utter_did_that_help:
+    - text: "Điều này có giúp bạn không?"
+    - text: "Bạn thấy câu trả lời này có hữu ích không?"
+    - text: "Hy vọng tôi đã giúp bạn. Bạn có cần thêm gì không?"
+  
+  utter_happy:
+    - text: "Tuyệt vời, tiếp tục thôi!"
+    - text: "Thật tuyệt vời! Tiến hành nhé!"
+    - text: "Tuyệt quá, chúc bạn ngày vui vẻ!"
+    - text: "Chắc chắn rồi, tiếp tục công việc thôi!"
+
+  utter_goodbye:
+    - text: "Tạm biệt!"
+    - text: "Chúc bạn một ngày tốt lành!"
+    - text: "Tạm biệt và hẹn gặp lại!"
+    - text: "Chúc bạn có một ngày tuyệt vời!"
+  
+  utter_ask_product_inquiry:
+    - text: "Bạn đang tìm sản phẩm gì? Hay có điều gì tôi có thể tư vấn giúp bạn?"
+    - text: "Bạn cần tìm sách gì hoặc cần tôi hỗ trợ về sản phẩm nào?"
+    - text: "Chúng tôi có rất nhiều sách, bạn đang quan tâm đến thể loại hoặc sản phẩm nào?"
+    - text: "Chào bạn, bạn muốn tôi tư vấn gì cho bạn? Bạn đang tìm sách hay có câu hỏi gì khác?"
+
+  utter_ask_about_product:
+    - text: "Bạn muốn tìm sách gì? Chúng tôi có nhiều thể loại sách cho bạn lựa chọn."
+    - text: "Bạn đang tìm sách thể loại nào? Chúng tôi có rất nhiều lựa chọn!"
+    - text: "Bạn cần tìm sách gì? Chúng tôi có rất nhiều thể loại sách phù hợp với bạn."
+    - text: "Sách gì bạn thích? Chúng tôi có một bộ sưu tập lớn để bạn chọn lựa."
+
+  utter_ask_about_price:
+    - text: "Giá sách dao động tùy theo thể loại và tác giả. Bạn muốn biết giá của cuốn sách nào?"
+    - text: "Mỗi cuốn sách có một mức giá riêng, bạn có thể cho tôi biết cuốn sách bạn muốn tham khảo không?"
+    - text: "Giá của sách phụ thuộc vào nhiều yếu tố. Bạn muốn hỏi về giá của cuốn sách nào?"
+    - text: "Chúng tôi có sách với giá rất đa dạng, bạn muốn tìm hiểu giá của sách nào?"
+
+  utter_ask_about_discount:
+    - text: "Chúng tôi thường xuyên có các chương trình giảm giá, bạn có muốn biết về chương trình giảm giá hiện tại không?"
+    - text: "Bạn muốn biết các ưu đãi giảm giá hiện tại của chúng tôi không?"
+    - text: "Chúng tôi có nhiều chương trình giảm giá, bạn có muốn tôi giới thiệu chi tiết không?"
+    - text: "Đừng bỏ lỡ các chương trình giảm giá hấp dẫn của chúng tôi, bạn muốn biết thêm không?"
+
+  utter_ask_about_payment:
+    - text: "Chúng tôi hỗ trợ nhiều phương thức thanh toán như thẻ tín dụng, chuyển khoản ngân hàng và thanh toán khi nhận hàng."
+    - text: "Bạn có thể thanh toán qua thẻ tín dụng, chuyển khoản ngân hàng hoặc thanh toán khi nhận hàng."
+    - text: "Chúng tôi hỗ trợ các phương thức thanh toán linh hoạt, bao gồm thanh toán qua thẻ và chuyển khoản ngân hàng."
+    - text: "Chúng tôi có nhiều lựa chọn thanh toán, bạn có thể chọn phương thức phù hợp với mình."
+
+  utter_ask_about_availability:
+    - text: "Cuốn sách này còn không? Chúng tôi sẽ kiểm tra ngay cho bạn."
+    - text: "Tôi sẽ kiểm tra xem cuốn sách này còn hàng không?"
+    - text: "Để tôi kiểm tra lại tình trạng sách này cho bạn nhé."
+    - text: "Chúng tôi sẽ nhanh chóng kiểm tra xem sách này có sẵn không."
+
+  utter_ask_about_order_tracking:
+    - text: "Bạn có thể theo dõi trạng thái đơn hàng qua ứng dụng hoặc liên hệ chúng tôi nếu cần hỗ trợ thêm."
+    - text: "Đơn hàng của bạn có thể được theo dõi qua ứng dụng của chúng tôi."
+    - text: "Bạn có thể xem chi tiết đơn hàng ngay trên ứng dụng hoặc liên hệ với chúng tôi nếu cần giúp đỡ."
+    - text: "Nếu bạn muốn theo dõi trạng thái đơn hàng, hãy sử dụng ứng dụng của chúng tôi."
+
+  utter_ask_about_return_policy:
+    - text: "Chúng tôi có chính sách trả hàng trong vòng 7 ngày nếu sách bị lỗi hoặc không đúng với mô tả."
+    - text: "Bạn có thể trả lại sách trong vòng 7 ngày nếu sách bị lỗi hoặc không như mô tả."
+    - text: "Chúng tôi có chính sách hoàn trả trong 7 ngày, nếu sách bị lỗi hoặc không đúng mô tả."
+    - text: "Nếu sách không như mô tả hoặc bị lỗi, bạn có thể trả lại trong vòng 7 ngày."
+
+  utter_ask_about_shipping:
+    - text: "Chúng tôi hỗ trợ giao hàng toàn quốc. Thời gian giao hàng từ 2-5 ngày."
+    - text: "Chúng tôi giao hàng nhanh chóng trên toàn quốc, bạn sẽ nhận được đơn hàng trong 2-5 ngày."
+    - text: "Giao hàng của chúng tôi được thực hiện trên toàn quốc, thời gian giao hàng từ 2-5 ngày."
+    - text: "Chúng tôi cung cấp dịch vụ giao hàng toàn quốc, bạn sẽ nhận được hàng trong vòng 2-5 ngày."
+
+  utter_ask_about_opening_hours:
+    - text: "Cửa hàng mở cửa từ 9h sáng đến 6h tối mỗi ngày."
+    - text: "Cửa hàng của chúng tôi hoạt động từ 9h sáng đến 6h tối hàng ngày."
+    - text: "Chúng tôi mở cửa từ 9h sáng đến 6h tối, bạn có thể ghé qua bất kỳ lúc nào trong thời gian này."
+    - text: "Cửa hàng của chúng tôi luôn sẵn sàng phục vụ bạn từ 9h sáng đến 6h tối."
+
+  utter_ask_about_location:
+    - text: "Chúng tôi ở địa chỉ 123 đường ABC, quận XYZ, TP. HCM."
+    - text: "Cửa hàng của chúng tôi nằm ở địa chỉ 123 đường ABC, quận XYZ, TP. HCM."
+    - text: "Bạn có thể tìm thấy chúng tôi tại 123 đường ABC, quận XYZ, TP. HCM."
+    - text: "Chúng tôi có mặt tại địa chỉ 123 đường ABC, quận XYZ, TP. HCM."
+
+  utter_ask_about_contact:
+    - text: "Bạn có thể liên hệ admin qua email: admin@sachhay.vn hoặc số 0123 456 789."
+    - text: "Nếu cần hỗ trợ, bạn có thể liên hệ với chúng tôi qua email admin@sachhay.vn hoặc số điện thoại 0123 456 789."
+    - text: "Liên hệ với chúng tôi qua email admin@sachhay.vn hoặc gọi số 0123 456 789 nếu bạn cần thêm thông tin."
+    - text: "Chúng tôi có thể hỗ trợ bạn qua email admin@sachhay.vn hoặc qua số 0123 456 789."
+
+  utter_ask_product_unavailable:
+    - text: "Rất tiếc, sản phẩm này hiện tại không có sẵn. Bạn có muốn xem những sản phẩm khác không?"
+    - text: "Sản phẩm này đang hết hàng, nhưng chúng tôi có nhiều lựa chọn khác cho bạn tham khảo. Bạn có muốn xem không?"
+    - text: "Xin lỗi, sản phẩm bạn tìm không có sẵn tại thời điểm này. Bạn có muốn tìm hiểu về các sản phẩm tương tự?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

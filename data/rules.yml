@@ -1,0 +1,30 @@
+version: "3.1"
+
+rules:
+
+- rule: Nói địa chỉ cửa hàng khi người dùng hỏi về địa chỉ
+  steps:
+  - intent: ask_about_location
+  - action: utter_ask_about_location
+
+- rule: Nói thông tin liên hệ khi người dùng hỏi về cách liên hệ
+  steps:
+  - intent: ask_about_contact
+  - action: utter_ask_about_contact
+
+- rule: Nói chính sách trả hàng khi người dùng hỏi về chính sách trả hàng
+  steps:
+  - intent: ask_about_return_policy
+  - action: utter_ask_about_return_policy
+  - action: utter_ask_about_shipping
+
+- rule: Nói chính sách giao hàng khi người dùng hỏi về chính sách giao hàng
+  steps:
+  - intent: ask_about_shipping
+  - action: utter_ask_about_shipping
+  - action: utter_ask_about_return_policy
+
+- rule: Nói giờ mở cửa khi người dùng hỏi về giờ mở cửa
+  steps:
+  - intent: ask_about_opening_hours
+  - action: utter_ask_about_opening_hours
