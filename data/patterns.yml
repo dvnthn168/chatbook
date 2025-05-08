@@ -1,11 +1,17 @@
 flows:
   pattern_chitchat:
-    description: Conversation repair flow for off-topic interactions that won't disrupt the main conversation. should not respond to greetings or anything else for which there is a flow defined
+    description: Luồng phục hồi hội thoại cho các tương tác ngoài chủ đề, không làm gián đoạn cuộc hội thoại chính. Không phản hồi lời chào hoặc bất kỳ nội dung nào đã được định nghĩa trong các flow khác.
     name: pattern chitchat
     steps:
       - action: utter_free_chitchat_response
+
   pattern_search:
-    description: Flow for handling knowledge-based questions
+    description: Luồng xử lý các câu hỏi dựa trên tri thức
     name: pattern search
     steps:
       - action: utter_free_chitchat_response
+
+  pattern_completed:
+    description: Hoàn tất luồng hội thoại của người dùng
+    steps:
+      - action: utter_can_do_something_else

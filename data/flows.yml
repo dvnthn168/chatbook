@@ -1,27 +1,167 @@
-# flows:
-#   book_purchase:
-#     description: Hỗ trợ người dùng chọn và mua sách từ cửa hàng.
-#     steps:
-#       # Bước 1: Hỏi người dùng về loại sách họ muốn mua
-#       - collect: book_selection
-#         description: Người dùng chọn sách muốn mua
+flows:
+  book_purchase:
+    description: Hỗ trợ người dùng chọn và mua sách từ cửa hàng.
+    steps:
+      # Bước 1: Hỏi người dùng về loại sách họ muốn mua
+      - collect: book_selection
+        description: Người dùng chọn sách muốn mua
 
-#       # Bước 2: Hỏi về thông tin của người mua và địa chỉ giao hàng
-#       - collect: user_contact_info
-#         description: Thu thập thông tin liên hệ của người dùng (email, số điện thoại, v.v.)
-#       - collect: delivery_address
-#         description: Thu thập địa chỉ giao hàng
+      # Bước 2: Hỏi về thông tin của người mua và địa chỉ giao hàng
+      - collect: user_contact_info
+        description: Thu thập thông tin liên hệ của người dùng (email, số điện thoại, v.v.)
+      - collect: delivery_address
+        description: Thu thập địa chỉ giao hàng
 
-#       # Bước 3: Hỏi về phương thức thanh toán
-#       - collect: payment_method
-#         description: Hỏi người dùng chọn phương thức thanh toán (thẻ tín dụng, chuyển khoản ngân hàng, v.v.)
+      # Bước 3: Hỏi về phương thức thanh toán
+      - collect: payment_method
+        description: Hỏi người dùng chọn phương thức thanh toán (thẻ tín dụng, chuyển khoản ngân hàng, v.v.)
 
-#       # Bước 4: Tóm tắt đơn hàng và yêu cầu xác nhận
-#       - action: utter_summarize_order
-#       - collect: confirmation
-#         description: Yêu cầu người dùng xác nhận lại thông tin đơn hàng
+      # Bước 4: Tóm tắt đơn hàng và yêu cầu xác nhận
+      - action: utter_summarize_order
+      - collect: confirmation
+        description: Yêu cầu người dùng xác nhận lại thông tin đơn hàng
 
-#       # Bước 5: Xử lý thanh toán và hoàn tất giao dịch
-#       # - action: action_process_payment
-#       - action: utter_order_complete
-#       - action: utter_thank_you
+      # Bước 5: Xử lý thanh toán và hoàn tất giao dịch
+      # - action: action_process_payment
+      - action: utter_order_complete
+      - action: utter_did_that_help
+        
+  ask_about_location:
+    description: Trả lời khi người dùng hỏi về địa chỉ của cửa hàng
+    nlu_trigger: 
+      - intent: ask_about_location
+    always_include_in_prompt: true
+    steps:
+      - action: utter_ask_about_location
+
+  ask_about_contact:
+    description: Cung cấp thông tin liên hệ của cửa hàng cho người dùng
+    nlu_trigger: 
+      - intent: ask_about_contact
+    steps:
+      - action: utter_ask_about_contact
+
+  ask_about_return_policy:
+    description: Giải thích chính sách trả hàng khi người dùng hỏi
+    nlu_trigger: 
+      - intent: ask_about_return_policy
+    steps:
+      - action: utter_ask_about_return_policy
+
+  ask_about_shipping:
+    description: Trình bày chính sách giao hàng của cửa hàng
+    nlu_trigger: 
+      - intent: ask_about_shipping
+    steps:
+      - action: utter_ask_about_shipping
+
+  ask_about_opening_hours:
+    description: Cung cấp giờ mở cửa khi người dùng yêu cầu
+    nlu_trigger: 
+      - intent: ask_about_opening_hours
+    steps:
+      - action: utter_ask_about_opening_hours
+        
+  pattern_human_handoff:
+    description: Human handoff implementation
+    steps:
+      - collect: confirm_human_handoff
+        next:
+          - if: slots.confirm_human_handoff
+            then:
+            - action: action_human_handoff
+              next: END
+          - else:
+            - action: utter_human_handoff_cancelled
+              next: END
+
+  # ask_about_product:
+  #   description: Hỏi về sản phẩm
+  #   nlu_trigger:
+  #     - intent: greet
+  #   steps:
+  #     - action: utter_greet
+  #     - action: utter_ask_product_inquiry
+  #     - intent: ask_about_product
+  #     - action: utter_ask_about_product
+
+  # ask_about_price:
+  #   description: Hỏi về giá sản phẩm
+  #   nlu_trigger:
+  #     - intent: greet
+  #   steps:
+  #     - action: utter_greet
+  #     - action: utter_ask_product_inquiry
+  #     - intent: ask_about_price
+  #     - action: utter_ask_about_price
+
+  # ask_about_discount:
+  #   description: Hỏi về khuyến mãi
+  #   nlu_trigger:
+  #     - intent: greet
+  #   steps:
+  #     - action: utter_greet
+  #     - action: utter_ask_product_inquiry
+  #     - intent: ask_about_discount
+  #     - action: utter_ask_about_discount
+
+  # ask_about_payment:
+  #   description: Hỏi về phương thức thanh toán
+  #   nlu_trigger:
+  #     - intent: greet
+  #   steps:
+  #     - action: utter_greet
+  #     - action: utter_ask_product_inquiry
+  #     - intent: ask_about_payment
+  #     - action: utter_ask_about_payment
+
+  # ask_about_availability:
+  #   description: Hỏi về tính khả dụng của sản phẩm
+  #   nlu_trigger:
+  #     - intent: greet
+  #   steps:
+  #     - action: utter_greet
+  #     - action: utter_ask_product_inquiry
+  #     - intent: ask_about_availability
+  #     - action: utter_ask_about_availability
+
+  # ask_about_order_tracking:
+  #   description: Hỏi về theo dõi đơn hàng
+  #   nlu_trigger:
+  #     - intent: greet
+  #   steps:
+  #     - action: utter_greet
+  #     - action: utter_ask_product_inquiry
+  #     - intent: ask_about_order_tracking
+  #     - action: utter_ask_about_order_tracking
+
+  # happy_path_with_product_inquiry:
+  #   description: Trường hợp thành công khi người dùng hỏi về sản phẩm và tiến hành các bước tiếp theo
+  #   nlu_trigger:
+  #     - intent: greet
+  #   steps:
+  #     - action: utter_greet
+  #     - action: utter_ask_product_inquiry
+  #     - intent: ask_about_product
+  #     - action: utter_ask_about_product
+  #     - intent: ask_about_price
+  #     - action: utter_ask_about_price
+  #     - intent: ask_about_payment
+  #     - action: utter_ask_about_payment
+  #     - intent: affirm
+  #     - action: utter_happy
+
+  # sad_path_with_unavailable_product:
+  #   description: Trường hợp không thành công khi sản phẩm không khả dụng
+  #   nlu_trigger:
+  #     - intent: greet
+  #   steps:
+  #     - action: utter_greet
+  #     - action: utter_ask_product_inquiry
+  #     - intent: ask_about_product
+  #     - action: utter_ask_about_product
+  #     - intent: ask_about_availability
+  #     - action: utter_ask_about_availability
+  #     - intent: deny
+  #     - action: utter_ask_product_unavailable
+  #     - action: utter_goodbye

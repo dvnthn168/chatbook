@@ -1,13 +1,28 @@
 recipe: default.v1
 language: en
+
 pipeline:
-- name: SingleStepLLMCommandGenerator
-  llm:
-    model_group: rasa_command_generation_model
-  flow_retrieval:
-    active: false
+  # Bộ phân loại intent nên đứng trước nếu bạn dùng intent-based flows
+  - name: WhitespaceTokenizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: DIETClassifier   # Intent classifier cần thiết
+  - name: EntitySynonymMapper
+
+  # Phải đứng trước LLM generator để khởi động flow bằng intent
+  - name: NLUCommandAdapter
+    user_input:
+      max_characters: 420
+
+  # LLM generator (sẽ xử lý phần còn lại)
+  - name: SingleStepLLMCommandGenerator
+    llm:
+      model_group: rasa_command_generation_model
+    flow_retrieval:
+      active: false
 
 policies:
-- name: FlowPolicy
-#  - name: EnterpriseSearchPolicy
-assistant_id: 20250507-181437-plain-university
+  - name: FlowPolicy
+  # - name: EnterpriseSearchPolicy (nếu dùng)
+
+assistant_id: 20250508-090553-free-grenade

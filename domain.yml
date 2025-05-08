@@ -19,6 +19,37 @@ intents:
   - ask_about_location
   - ask_about_contact
 
+slots:
+  book_selection:
+    type: text
+    mappings:
+      - type: from_llm
+
+  user_contact_info:
+    type: text
+    mappings:
+      - type: from_llm
+
+  delivery_address:
+    type: text
+    mappings:
+      - type: from_llm
+
+  payment_method:
+    type: text
+    mappings:
+      - type: from_llm
+
+  confirmation:
+    type: text
+    mappings:
+      - type: from_llm
+  
+  request_human_handoff:
+    type: bool
+    influence_conversation: true
+
+
 responses:
   utter_greet:
     - text: "Chào bạn! Bạn có khỏe không?"
@@ -27,9 +58,10 @@ responses:
     - text: "Chào bạn, hôm nay tôi có thể giúp gì cho bạn?"
   
   utter_did_that_help:
-    - text: "Điều này có giúp bạn không?"
-    - text: "Bạn thấy câu trả lời này có hữu ích không?"
-    - text: "Hy vọng tôi đã giúp bạn. Bạn có cần thêm gì không?"
+    - text: "Bạn cần mình hỗ trợ thêm gì nữa không?"
+    - text: "Bạn còn câu hỏi nào khác muốn hỏi không?"
+    - text: "Mình có thể giúp gì thêm cho bạn nữa không?"
+    - text: "Nếu còn điều gì chưa rõ, bạn cứ hỏi nhé!"
   
   utter_happy:
     - text: "Tuyệt vời, tiếp tục thôi!"
@@ -119,6 +151,62 @@ responses:
     - text: "Rất tiếc, sản phẩm này hiện tại không có sẵn. Bạn có muốn xem những sản phẩm khác không?"
     - text: "Sản phẩm này đang hết hàng, nhưng chúng tôi có nhiều lựa chọn khác cho bạn tham khảo. Bạn có muốn xem không?"
     - text: "Xin lỗi, sản phẩm bạn tìm không có sẵn tại thời điểm này. Bạn có muốn tìm hiểu về các sản phẩm tương tự?"
+
+  # book_purchase
+  utter_ask_book_selection:
+    - text: "Bạn muốn mua loại sách nào?"
+
+  utter_ask_user_contact_info:
+    - text: "Vui lòng cho biết thông tin liên hệ của bạn (email, số điện thoại)."
+
+  utter_ask_delivery_address:
+    - text: "Bạn muốn giao hàng tới địa chỉ nào?"
+
+  utter_ask_payment_method:
+    - text: "Bạn muốn thanh toán bằng hình thức nào?"
+
+  utter_ask_confirmation:
+    - text: "Đây là đơn hàng bạn đã chọn. Vui lòng xác nhận (có/không)."
+
+  utter_summarize_order:
+    - text: |
+        Dưới đây là tóm tắt đơn hàng của bạn:
+        📚 Sách: {book_selection}
+        📞 Liên hệ: {user_contact_info}
+        🏠 Địa chỉ giao hàng: {delivery_address}
+        💳 Phương thức thanh toán: {payment_method}
+        Vui lòng xác nhận nếu mọi thông tin đều chính xác.
+
+  utter_order_complete:
+    - text: "Đơn hàng của bạn đã được xử lý thành công."
+      metadata:
+        rephrase: True
+  
+  utter_free_chitchat_response:
+    - text: "Bạn hỏi vui quá 😄. Mình đang giúp bạn chọn mua sách nhé!"
+    - text: "Mình ở đây nếu bạn cần hỗ trợ về sách."
+    - text: "Nếu bạn muốn tìm sách hoặc mua sách, mình luôn sẵn sàng hỗ trợ nhé!"
+  
+  utter_can_do_something_else:
+    - text: "Có điều gì khác tôi có thể hỗ trợ bạn không?"
+      metadata:
+        rephrase: True
+      
+  utter_ask_request_human_handoff:
+    - text: "Bạn có muốn được kết nối với nhân viên hỗ trợ không?"
+      buttons:
+        - title: "Có"
+          payload: '/affirm{"request_human_handoff": true}'
+        - title: "Không"
+          payload: '/deny{"request_human_handoff": false}'
+
+  utter_human_handoff_cancelled:
+    - text: "Đã hiểu, bạn không muốn kết nối với nhân viên tư vấn. Tôi có thể giúp gì thêm cho bạn không?"
+      metadata:
+        rephrase: True
+
+actions:
+  - action_human_handoff
 
 session_config:
   session_expiration_time: 60
